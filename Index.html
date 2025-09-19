@@ -129,7 +129,7 @@
     menu.remove();
   };
 
-  button.innerHTML = 'Por Tropa do Mantem';
+  button.innerHTML = 'Clique Aqui MZR';
   button.style.cssText = `
     font-family: Arial;
     font-size: 16px;
@@ -142,7 +142,7 @@
     cursor: pointer;
   `;
   button.onclick = function() {
-    var link = prompt("Url?");
+    var link = prompt("Digite o Site para Desbloquear");
     var proxy = 'https://api.codetabs.com/v1/proxy?quest=';
     fetch(proxy + link)
       .then((response) => response.text())
@@ -211,7 +211,7 @@
   </style>
   </head>
   <body>
-    <div class="bottom-left">
+    <div class="bottom-center">
 Bokus Cu Froxo
  </div>
   </body>
