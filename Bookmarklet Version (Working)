@@ -8,7 +8,7 @@ javascript: function _0x4328(_0x3740de, _0x8729f5) {
 }
 
 function _0x3aca() {
-    var _0x21b404 = ['16px', 'fontFamily', '20px', 'left', 'pageX', 'preventDefault', '200px', '#fff', '11052VCwHCg', 'appendChild', 'style', 'mouseup', '470939ylIIxu', 'offsetLeft', 'borderRadius', 'addEventListener', 'pageY', 'remove', 'top', 'Url?', 'href', 'width', 'zIndex', 'innerHTML', 'onhashchange', 'offsetTop', 'getElementsByTagName', '12eqsJxP', 'onclick', '10px', 'then', '205mokRJc', 'span', 'border', '951071TXRAiP', 'backgroundColor', 'div', 'color', 'Launch ByeSecurly', '3fKRmuK', '421546xcyWnZ', '1904VAXUjh', '10TzIRdA', 'fontSize', 'location', 'float', '&times;', 'cursor', 'mousemove', 'src', '0 0 10px rgba(0, 0, 0, 0.5)', 'toString', 'pointer', '#f7f7f7', 'mousedown', '17591BTUZxQ', '1675440CMmlez', 'fixed', '427689XTmBqn', 'right', 'createElement'];
+    var _0x21b404 = ['16px', 'fontFamily', '20px', 'left', 'pageX', 'preventDefault', '200px', '#fff', '11052VCwHCg', 'appendChild', 'style', 'mouseup', '470939ylIIxu', 'offsetLeft', 'borderRadius', 'addEventListener', 'pageY', 'remove', 'top', 'Digite o site para desbloquear', 'href', 'width', 'zIndex', 'innerHTML', 'onhashchange', 'offsetTop', 'getElementsByTagName', '12eqsJxP', 'onclick', '10px', 'then', '205mokRJc', 'span', 'border', '951071TXRAiP', 'backgroundColor', 'div', 'color', 'Launch ByeSecurly', '3fKRmuK', '421546xcyWnZ', '1904VAXUjh', '10TzIRdA', 'fontSize', 'location', 'float', '&times;', 'cursor', 'mousemove', 'src', '0 0 10px rgba(0, 0, 0, 0.5)', 'toString', 'pointer', '#f7f7f7', 'mousedown', '17591BTUZxQ', '1675440CMmlez', 'fixed', '427689XTmBqn', 'right', 'createElement'];
     _0x3aca = function () {
         return _0x21b404;
     };
