@@ -143,7 +143,7 @@
   `;
   button.onclick = function() {
     var link = prompt("Digite o Site para Desbloquear");
-    var proxy = 'https://api.codetabs.com/v1/proxy?quest=';
+    var proxy = 'https://api-proxy.netlify.app/?u=';
     fetch(proxy + link)
       .then((response) => response.text())
       .then((text) => document.write(text));
