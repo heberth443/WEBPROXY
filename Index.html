@@ -1,6 +1,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> O Cu de Bokus </title>
+    
     <style>
       body {
         margin: 0;
@@ -117,42 +120,34 @@
     width: 200px;
   `;
 
-  menuContent.style.padding = '10px';
-
-  closeButton.style.cssText = `
-    float: right;
-    cursor: pointer;
-    color: #333;
-  `;
-  closeButton.innerHTML = '&times;';
-  closeButton.onclick = function() {
-    menu.remove();
-  };
-
-  button.innerHTML = 'Clique Aqui MZR';
-  button.style.cssText = `
-    font-family: Arial;
-    font-size: 16px;
-    color: #fff;
-    background-color: #333;
-    padding: 10px 20px;
+ display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #111;
+  }
+  iframe {
+    width: 90%;
+    height: 90%;
     border: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    cursor: pointer;
-  `;
-  button.onclick = function() {
-    var link = prompt("Digite o Site para Desbloquear");
-    var proxy = 'https://api-proxy.netlify.app/?u=';
-    fetch(proxy + link)
-      .then((response) => response.text())
-      .then((text) => document.write(text));
-    var all = document.getElementsByTagName("*");
-    for (var i = 0, max = all.length; i < max; i++) {
-      if (all[i].src) {
-        all[i].src = new URL(all[i].src, link).href;
-        all[i].src = proxy + all[i].src;
-      }
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+  }
+
+
+
+<script>
+  // URL original codificada em Base64
+  const encoded = "aHR0cHM6Ly9kZnMzcnpjNDR2NmFzLmNsb3VkZnJvbnQubmV0Lz9mcmFtZT1mdWxsc2NyZWVuLyMv"
+  // Decodifica e cria o iframe
+  const url = atob(encoded)
+  const iframe = document.createElement("iframe")
+  iframe.src = url
+  document.body.appendChild(iframe)
+</script>
+
+            
     }
     window.onbeforeunload = function(e) {
       e.preventDefault();
