@@ -11,71 +11,26 @@
       overflow: hidden;
       font-family: Arial, sans-serif;
       background: radial-gradient(circle, rgb(0, 0, 0), rgb(1, 44, 42));
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 100vh;
     }
 
-    /* Fundo de estrelas animadas */
-    #background {
+    /* Iframe em tela cheia */
+    #iframeContainer {
       position: fixed;
-      width: 100vw;
-      height: 100vh;
       top: 0;
       left: 0;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .star {
-      position: absolute;
-      background: rgb(57, 255, 215);
-      border-radius: 50%;
-      transform: scale(0);
-      animation: sparkle 2s infinite, drift linear infinite;
-    }
-
-    @keyframes sparkle {
-      0%, 100% {
-        opacity: 0;
-        transform: scale(0);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes drift {
-      0%, 100% {
-        transform: translate(0, 0);
-      }
-      50% {
-        transform: translate(50px, -50px);
-      }
-    }
-
-    /* Iframe centralizado */
-    #iframeContainer {
-      position: relative;
+      width: 100%;
+      height: 100%;
       z-index: 2;
-      width: 90%;
-      height: 90%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     iframe {
       width: 100%;
       height: 100%;
       border: none;
-      border-radius: 10px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
     }
 
-    /* Texto no topo centralizado */
+    /* Texto no topo centralizado e rosa */
     .top-text {
       position: fixed;
       top: 20px;
@@ -83,7 +38,7 @@
       transform: translateX(-50%);
       font-family: Arial, sans-serif;
       font-size: 40px;
-      color: rgba(255, 255, 255, 0.3);
+      color: rgb(255, 105, 180); /* rosa */
       z-index: 3;
       user-select: none;
       text-align: center;
@@ -92,27 +47,11 @@
 </head>
 
 <body>
-  <div id="background"></div>
-
   <div id="iframeContainer"></div>
 
   <div class="top-text">Bokus Cu Froxo</div>
 
   <script>
-    // Geração do fundo estrelado
-    const numStars = 300;
-    const background = document.getElementById('background');
-
-    for (let i = 0; i < numStars; i++) {
-      const star = document.createElement('div');
-      star.classList.add('star');
-      star.style.width = `${Math.random() * 3}px`;
-      star.style.height = star.style.width;
-      star.style.left = `${Math.random() * 100}vw`;
-      star.style.top = `${Math.random() * 100}vh`;
-      background.appendChild(star);
-    }
-
     // URL codificada em Base64 e criação do iframe
     const encoded = "aHR0cHM6Ly9kZnMzcnpxNDR2NmFzLmNsb3VkZnJvbnQubmV0Lz9mcmFtZT1mdWxsc2NyZWVuLyMvcHJ4eQ==";
     const url = atob(encoded);
