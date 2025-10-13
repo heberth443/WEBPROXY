@@ -4,23 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>O Cu de Bokus</title>
-  
+
   <style>
     body {
       margin: 0;
       overflow: hidden;
       font-family: Arial, sans-serif;
       background: radial-gradient(circle, rgb(0, 0, 0), rgb(1, 44, 42));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
+    /* Fundo de estrelas animadas */
     #background {
-      position: absolute;
+      position: fixed;
       width: 100vw;
       height: 100vh;
-      overflow: hidden;
       top: 0;
       left: 0;
-      background: radial-gradient(circle, rgb(0, 0, 0), rgb(1, 44, 42));
+      overflow: hidden;
       z-index: 1;
     }
 
@@ -48,4 +52,69 @@
         transform: translate(0, 0);
       }
       50% {
-        transf
+        transform: translate(50px, -50px);
+      }
+    }
+
+    /* Iframe centralizado */
+    #iframeContainer {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    }
+
+    /* Texto no rodapé */
+    .bottom-top {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 40px;
+      color: rgba(255, 255, 255, 0.2);
+      z-index: 3;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="background"></div>
+
+  <div id="iframeContainer"></div>
+
+  <div class="bottom-top">Bokus Cu Froxo</div>
+
+  <script>
+    // Fundo de estrelas
+    const numStars = 300;
+    const background = document.getElementById('background');
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.width = `${Math.random() * 3}px`;
+      star.style.height = star.style.width;
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.top = `${Math.random() * 100}vh`;
+      background.appendChild(star);
+    }
+
+    // URL codificada em Base64
+    const encoded = "aHR0cHM6Ly9kZnMzcnpjNDR2NmFzLmNsb3VkZnJvbnQubmV0Lz9mcmFtZT1mdWxsc2NyZWVuLyMv";
+    const url = atob(encoded);
+    const iframe = document.createElement("iframe");
+    iframe.src = url;
+    document.getElementById("iframeContainer").appendChild(iframe);
+  </script>
+</body>
+</html>
