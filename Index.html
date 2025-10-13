@@ -1,213 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Cu de Bokus</title>
 
-    <title> O Cu de Bokus </title>
-    
-    <style>
-      body {
-        margin: 0;
-        overflow: hidden;
-        font-family: Arial, sans-serif;
-      }
-    
-      #background {
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        background: radial-gradient(circle, rgb(0, 0, 0), rgb(1, 44, 42));
-      }
-    
-      .star {
-        position: absolute;
-        background: rgb(57, 255, 215);
-        border-radius: 50%;
-        transform: scale(0);
-        animation: sparkle 2s infinite, drift linear infinite;
-      }
-    
-      @keyframes sparkle {
-        0%, 100% {
-          opacity: 0;
-          transform: scale(0);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-    
-      @keyframes drift {
-        0%, 100% {
-          transform: translate(0, 0);
-        }
-        50% {
-          transform: translate(50px, -50px);
-        }
-      }
-    </style>
-    </head>
-      <div id="background">
-        <!-- Generating stars -->
-        <script>
-          const numStars = 300;
-          const background = document.getElementById('background');
-    
-          for (let i = 0; i < numStars; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            star.style.width = `${Math.random() * 3}px`;
-            star.style.height = star.style.width;
-            star.style.left = `${Math.random() * 100}vw`;
-            star.style.top = `${Math.random() * 100}vh`;
-    
-            background.appendChild(star);
-          }
-        </script>
-      </div>
-    </body>
-        <style>
-          body {
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-          }
-          input {
-            margin-bottom: 10px;
-          }
-        </style>
-      <style>
-        .image-container {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-    
-        .image {
-          width: 250px;
-          height: 250px;
-          border: 2px solid #daf3f1;
-          margin: 40px;
-          padding: 10px;
-          box-sizing: border-box;
-          transition: all 0.3s ease;
-        }
-    
-        .image:hover {
-          transform: scale(1.1);
-          border-color: #9900ff;
-        }
-      </style>
-    </head>
-    <script>
-        javascript:(function() {
-  var menu = document.createElement('div');
-  var menuContent = document.createElement('div');
-  var closeButton = document.createElement('span');
-  var button = document.createElement('button');
-
-  menu.style.cssText = `
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    background-color: rgba(0, 255, 255, 0.2); 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    width: 200px;
-  `;
-
- display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background: #111;
-  }
-  iframe {
-    width: 90%;
-    height: 90%;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.6);
-  }
-
-
-
-<script>
-  // URL original codificada em Base64
-  const encoded = "aHR0cHM6Ly9kZnMzcnpjNDR2NmFzLmNsb3VkZnJvbnQubmV0Lz9mcmFtZT1mdWxsc2NyZWVuLyMv"
-  // Decodifica e cria o iframe
-  const url = atob(encoded)
-  const iframe = document.createElement("iframe")
-  iframe.src = url
-  document.body.appendChild(iframe)
-</script>
-
-            
-    }
-    window.onbeforeunload = function(e) {
-      e.preventDefault();
-      alert(e.toString());
-    };
-    function locationHashChanged(e) {
-      e.preventDefault();
-      alert(e);
-      window.location = new URL(e.oldURL, e.newURL).href;
-    }
-    window.onhashchange = locationHashChanged;
-  };
-
-  menuContent.appendChild(button);
-  menuContent.appendChild(closeButton);
-  menu.appendChild(menuContent);
-  document.body.appendChild(menu);
-
-  var isDragging = false;
-  var mouseOffset = { x: 0, y: 0 };
-
-  menuContent.addEventListener('mousedown', function(e) {
-    isDragging = true;
-    mouseOffset.x = e.pageX - menu.offsetLeft;
-    mouseOffset.y = e.pageY - menu.offsetTop;
-  });
-
-  document.addEventListener('mousemove', function(e) {
-    if (isDragging) {
-      menu.style.left = (e.pageX - mouseOffset.x) + 'px';
-      menu.style.top = (e.pageY - mouseOffset.y) + 'px';
-    }
-  });
-
-  document.addEventListener('mouseup', function() {
-    isDragging = false;
-  });
-})();
-    </script>
-  <head>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: #000; 
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle, rgb(0, 0, 0), rgb(1, 44, 42));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
+
+    /* Fundo de estrelas animadas */
+    #background {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .star {
+      position: absolute;
+      background: rgb(57, 255, 215);
+      border-radius: 50%;
+      transform: scale(0);
+      animation: sparkle 2s infinite, drift linear infinite;
+    }
+
+    @keyframes sparkle {
+      0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes drift {
+      0%, 100% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(50px, -50px);
+      }
+    }
+
+    /* Iframe centralizado */
+    #iframeContainer {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    }
+
+    /* Texto no rodapé */
     .bottom-top {
       position: fixed;
-      bottom: 0;
-      top: 0;
+      bottom: 10px;
+      left: 10px;
       font-family: Arial, sans-serif;
-      font-size: 50px;
-      color: rgba(255, 255, 255, 0.2); 
-      padding: 10px;
+      font-size: 40px;
+      color: rgba(255, 255, 255, 0.2);
+      z-index: 3;
     }
   </style>
-  </head>
-  <body>
-    <div class="bottom-top">
-Bokus Cu Froxo
- </div>
-  </body>
-  
+</head>
+
+<body>
+  <div id="background"></div>
+
+  <div id="iframeContainer"></div>
+
+  <div class="bottom-top">Bokus Cu Froxo</div>
+
+  <script>
+    // Fundo de estrelas
+    const numStars = 300;
+    const background = document.getElementById('background');
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.width = `${Math.random() * 3}px`;
+      star.style.height = star.style.width;
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.top = `${Math.random() * 100}vh`;
+      background.appendChild(star);
+    }
+
+    // URL codificada em Base64
+    const encoded = "aHR0cHM6Ly9kZnMzcnpjNDR2NmFzLmNsb3VkZnJvbnQubmV0Lz9mcmFtZT1mdWxsc2NyZWVuLyMv";
+    const url = atob(encoded);
+    const iframe = document.createElement("iframe");
+    iframe.src = url;
+    document.getElementById("iframeContainer").appendChil
