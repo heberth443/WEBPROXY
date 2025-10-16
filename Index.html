@@ -1,66 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>O Cu de Bokus</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OCudeBokus</title> 
 
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle, rgb(0, 0, 0), rgb(1, 44, 42));
-      height: 100vh;
-    }
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle, rgb(0, 0, 0), rgb(1, 44, 42));
+  height: 100vh;
+}
 
-    /* Iframe em tela cheia */
-    #iframeContainer {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 2;
-    }
+/* Iframe em tela cheia */
+#iframeContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
 
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
-    /* Texto no topo centralizado e rosa */
-    .top-text {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: Arial, sans-serif;
-      font-size: 40px;
-      color: rgb(255, 105, 180); /* rosa */
-      z-index: 3;
-      user-select: none;
-      text-align: center;
-    }
-  </style>
+/* Texto no topo centralizado e rosa com imagens */
+.top-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* espaço entre imagens e texto */
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  font-size: 40px;
+  color: rgb(255, 105, 180);
+  z-index: 3;
+  user-select: none;
+  text-align: center;
+}
+
+.side-img {
+  width: 60px;   /* largura da imagem */
+  height: auto;  /* mantém proporção */
+}
+</style>
 </head>
 
 <body>
-  <div id="iframeContainer"></div>
+<div id="iframeContainer"></div>
 
 <div class="top-text">
-  <img src="https://firebasestorage.googleapis.com/v0/b/image-uploader-br.appspot.com/o/images%2Fb4812431-2de6-41ba-b012-2c5a5a808837?alt=media&token=1f164de8-7966-49b2-b333-74283588e6f2" 
-       alt="imagem" class="side-img"> <div class="top-text">Bokus Cu Froxo</div> <div class="top-text">
-  <img src="https://firebasestorage.googleapis.com/v0/b/image-uploader-br.appspot.com/o/images%2Fb4812431-2de6-41ba-b012-2c5a5a808837?alt=media&token=1f164de8-7966-49b2-b333-74283588e6f2" 
-       alt="imagem" class="side-img"> </div>
-  <script>
-    // URL codificada em Base64 e criação do iframe
-    const encoded = "aHR0cHM6Ly9kZnMzcnpxNDR2NmFzLmNsb3VkZnJvbnQubmV0Lz9mcmFtZT1mdWxsc2NyZWVuLyMvcHJ4eQ==";
-    const url = atob(encoded);
-    const iframe = document.createElement("iframe");
-    iframe.src = url;
-    document.getElementById("iframeContainer").appendChild(iframe);
-  </script>
+  <img class="side-img" src="https://firebasestorage.googleapis.com/v0/b/image-uploader-br.appspot.com/o/images%2Fb4812431-2de6-41ba-b012-2c5a5a808837?alt=media&token=1f164de8-7966-49b2-b333-74283588e6f2" alt="imagem">
+  <span>Bokus Cu Frouxo</span>
+  <img class="side-img" src="https://firebasestorage.googleapis.com/v0/b/image-uploader-br.appspot.com/o/images%2Fb4812431-2de6-41ba-b012-2c5a5a808837?alt=media&token=1f164de8-7966-49b2-b333-74283588e6f2" alt="imagem">
+</div>
+
+<script>
+// URL codificada em Base64 e criação do iframe
+const encoded = "aHR0cHM6Ly9kZnMzcnpxNDR2NmFzLmNsb3VkZnJvbnQubmV0Lz9mcmFtZT1mdWxsc2NyZWVuLyMvcHJ4eQ==";
+const url = atob(encoded);
+const iframe = document.createElement("iframe");
+iframe.src = url;
+document.getElementById("iframeContainer").appendChild(iframe);
+</script>
 </body>
 </html>
