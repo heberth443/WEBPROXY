@@ -54,7 +54,8 @@ iframe {
   width: auto; /* mantém proporção */
 }
 
-  .letter {
+/* Pulsando (coração) */
+.letter {
   display: inline-block;
   animation: heartbeat 1s infinite;
 }
@@ -73,7 +74,7 @@ iframe {
 
 <div class="top-text">
   <img class="side-img" src="https://firebasestorage.googleapis.com/v0/b/image-uploader-br.appspot.com/o/images%2Fb4812431-2de6-41ba-b012-2c5a5a808837?alt=media&token=1f164de8-7966-49b2-b333-74283588e6f2" alt="imagem">
-  <span>Bokus Cu Frouxo</span>
+  <span id="pulsing-text">Bokus Cu Frouxo</span>
   <img class="side-img" src="https://firebasestorage.googleapis.com/v0/b/image-uploader-br.appspot.com/o/images%2Fb4812431-2de6-41ba-b012-2c5a5a808837?alt=media&token=1f164de8-7966-49b2-b333-74283588e6f2" alt="imagem">
 </div>
 
@@ -84,6 +85,20 @@ const url = atob(encoded);
 const iframe = document.createElement("iframe");
 iframe.src = url;
 document.getElementById("iframeContainer").appendChild(iframe);
+
+// Separar cada letra em span para pulsar
+const textElement = document.getElementById("pulsing-text");
+const text = textElement.textContent;
+textElement.textContent = '';
+
+for(let i=0; i<text.length; i++){
+  const span = document.createElement('span');
+  span.textContent = text[i];
+  span.className = 'letter';
+  // atraso diferente para cada letra
+  span.style.animationDelay = (i * 0.1) + 's';
+  textElement.appendChild(span);
+}
 </script>
 </body>
 </html>
