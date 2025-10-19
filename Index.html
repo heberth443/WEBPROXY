@@ -21,15 +21,15 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
-  height: 50%;
+  width: 50vw;
+  height: 50vh;
   z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Iframe central e com borda reduzida */
+/* Iframe ajustado exatamente a 50% da tela */
 iframe {
   width: 100%;
   height: 100%;
@@ -81,8 +81,8 @@ iframe {
 /* Responsivo */
 @media (max-width: 600px) {
   #iframeContainer {
-    width: 80%;
-    height: 50%;
+    width: 80vw;
+    height: 50vh;
   }
   .top-text {
     font-size: 24px;
@@ -109,7 +109,7 @@ const iframe = document.createElement("iframe");
 iframe.src = url;
 document.getElementById("iframeContainer").appendChild(iframe);
 
-// Separa cada letra para animar
+// Animação pulsante nas letras
 const textElement = document.getElementById("pulsing-text");
 const text = textElement.textContent;
 textElement.textContent = '';
