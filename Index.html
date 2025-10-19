@@ -15,23 +15,30 @@ body {
   height: 100vh;
 }
 
-/* Iframe em tela cheia */
+/* Container centralizado */
 #iframeContainer {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 70%;
-  height: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Iframe central e com borda reduzida */
 iframe {
-  width: 70%;
-  height: 70%;
-  border: none;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(128, 0, 32, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(128, 0, 32, 0.5);
 }
 
-/* Texto no topo centralizado e vermelho com imagens */
+/* Texto no topo centralizado e vermelho-vinho */
 .top-text {
   display: flex;
   align-items: center;
@@ -63,16 +70,20 @@ iframe {
 }
 
 @keyframes heartbeat {
-  0% { transform: scale(1) translateY(0); opacity: 1; }
-  20% { transform: scale(1.2) translateY(-5px); opacity: 0.8; }
-  40% { transform: scale(1) translateY(0); opacity: 1; }
-  60% { transform: scale(1.15) translateY(-3px); opacity: 0.9; }
-  80% { transform: scale(1) translateY(0); opacity: 1; }
-  100% { transform: scale(1) translateY(0); opacity: 1; }
+  0% { transform: scale(1); opacity: 1; }
+  20% { transform: scale(1.2); opacity: 0.8; }
+  40% { transform: scale(1); opacity: 1; }
+  60% { transform: scale(1.15); opacity: 0.9; }
+  80% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 /* Responsivo */
 @media (max-width: 600px) {
+  #iframeContainer {
+    width: 80%;
+    height: 50%;
+  }
   .top-text {
     font-size: 24px;
     top: 10px;
