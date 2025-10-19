@@ -12,12 +12,12 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; /* remove qualquer rolagem */
   font-family: Arial, sans-serif;
-  background: radial-gradient(circle, rgb(0, 0, 0), rgb(1, 44, 42));
+  background: radial-gradient(circle, rgb(0,0,0), rgb(1,44,42));
 }
 
-/* Container centralizado para o iframe */
+/* Container centralizado */
 #iframeContainer {
   position: absolute;
   top: 50%;
@@ -25,17 +25,16 @@ html, body {
   transform: translate(-50%, -50%);
   width: 50vw;
   height: 50vh;
-  z-index: 1; /* abaixo do texto, acima do fundo */
+  z-index: 1;
 }
 
-/* iframe visível e centralizado */
+/* iframe sem borda e centralizado */
 #iframeContainer iframe {
   width: 100%;
   height: 100%;
-  border: 2px solid rgba(128, 0, 32, 0.6);
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(128, 0, 32, 0.5);
+  border: none; /* remove a borda */
   display: block;
+  overflow: hidden; /* remove rolagem interna */
 }
 
 /* Texto no topo centralizado */
@@ -98,7 +97,7 @@ html, body {
 </div>
 
 <script>
-// Decodifica a URL Base64 e cria o iframe
+// Decodifica URL Base64 e cria iframe
 const encoded = "aHR0cHM6Ly9maXJlYmFzZXN0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vdjAvYi9teS1maXJzdC1wcm9qZWN0LTVkMzJkLmFwcHNwb3QuY29tL28vMTc2MDg4OTU2OTE4OD9hbHQ9bWVkaWEmdG9rZW49NTljNzU4OWUtZmI2ZC00OWVkLWI4MDQtY2QxN2JkZTU4MmYx";
 const url = atob(encoded);
 
@@ -113,7 +112,6 @@ document.getElementById("iframeContainer").appendChild(iframe);
 const textElement = document.getElementById("pulsing-text");
 const text = textElement.textContent;
 textElement.textContent = '';
-
 for (let i = 0; i < text.length; i++) {
   const span = document.createElement('span');
   span.textContent = text[i];
