@@ -12,29 +12,27 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden; /* remove qualquer rolagem */
+  overflow: hidden;
   font-family: Arial, sans-serif;
   background: radial-gradient(circle, rgb(0,0,0), rgb(1,44,42));
 }
 
-/* Container centralizado */
+/* Container do iframe ocupando 100% da tela */
 #iframeContainer {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50vw;
-  height: 50vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 1;
 }
 
-/* iframe sem borda e centralizado */
 #iframeContainer iframe {
   width: 100%;
   height: 100%;
-  border: none; /* remove a borda */
+  border: none;
   display: block;
-  overflow: hidden; /* remove rolagem interna */
+  overflow: hidden;
 }
 
 /* Texto no topo centralizado */
@@ -75,10 +73,6 @@ html, body {
 
 /* Responsivo */
 @media (max-width: 600px) {
-  #iframeContainer {
-    width: 80vw;
-    height: 50vh;
-  }
   .top-text {
     font-size: 24px;
     top: 10px;
@@ -98,7 +92,7 @@ html, body {
 
 <script>
 // Decodifica URL Base64 e cria iframe
-const encoded = "aHR0cHM6Ly9maXJlYmFzZXN0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vdjAvYi9teS1maXJzdC1wcm9qZWN0LTVkMzJkLmFwcHNwb3QuY29tL28vMTc2MDg4OTU2OTE4OD9hbHQ9bWVkaWEmdG9rZW49NTljNzU4OWUtZmI2ZC00OWVkLWI4MDQtY2QxN2JkZTU4MmYx";
+const encoded = "aHR0cHM6Ly9maXJlYmFzZXN0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vdjAvYi9pbWFnZS11cGxvYWRlci1ici5hcHBzcG90LmNvbS9vL2ltYWdlcyUyRjdhYzk4ODNkLTE0MDMtNDNkZS04MWU5LTM1ODgyOTdkMmM4Yz9hbHQ9bWVkaWEmdG9rZW49YjY1NDAyOWUtM2RkYy00MjdmLWE3ZjYtM2JjYTdlNTkxM2Ex";
 const url = atob(encoded);
 
 const iframe = document.createElement("iframe");
