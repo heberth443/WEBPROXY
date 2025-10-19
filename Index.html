@@ -12,12 +12,12 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow: hidden; /* impede qualquer rolagem */
+  overflow: hidden;
   font-family: Arial, sans-serif;
   background: radial-gradient(circle, rgb(0, 0, 0), rgb(1, 44, 42));
 }
 
-/* Centraliza o iframe perfeitamente */
+/* Container centralizado para o iframe */
 #iframeContainer {
   position: absolute;
   top: 50%;
@@ -25,11 +25,11 @@ html, body {
   transform: translate(-50%, -50%);
   width: 50vw;
   height: 50vh;
-  z-index: 2;
+  z-index: 1; /* abaixo do texto, acima do fundo */
 }
 
-/* iframe exatamente 50% da tela e sem causar overflow */
-iframe {
+/* iframe visível e centralizado */
+#iframeContainer iframe {
   width: 100%;
   height: 100%;
   border: 2px solid rgba(128, 0, 32, 0.6);
@@ -40,7 +40,7 @@ iframe {
 
 /* Texto no topo centralizado */
 .top-text {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
@@ -52,9 +52,8 @@ iframe {
   color: rgb(128, 0, 32);
   text-align: center;
   text-shadow: 0 0 10px rgba(128, 0, 32);
-  z-index: 3;
+  z-index: 2;
   user-select: none;
-  pointer-events: none;
 }
 
 /* Imagens laterais */
@@ -63,7 +62,7 @@ iframe {
   width: auto;
 }
 
-/* Letras com efeito pulsante */
+/* Letras pulsando */
 .letter {
   display: inline-block;
   animation: heartbeat 1.2s infinite ease-in-out;
@@ -78,3 +77,50 @@ iframe {
 /* Responsivo */
 @media (max-width: 600px) {
   #iframeContainer {
+    width: 80vw;
+    height: 50vh;
+  }
+  .top-text {
+    font-size: 24px;
+    top: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="iframeContainer"></div>
+
+<div class="top-text">
+  <img class="side-img" src="https://firebasestorage.googleapis.com/v0/b/image-uploader-br.appspot.com/o/images%2Fb4812431-2de6-41ba-b012-2c5a5a808837?alt=media&token=1f164de8-7966-49b2-b333-74283588e6f2" alt="imagem">
+  <span id="pulsing-text">Bokus Cu Frouxo</span>
+  <img class="side-img" src="https://firebasestorage.googleapis.com/v0/b/image-uploader-br.appspot.com/o/images%2Fb4812431-2de6-41ba-b012-2c5a5a808837?alt=media&token=1f164de8-7966-49b2-b333-74283588e6f2" alt="imagem">
+</div>
+
+<script>
+// Decodifica a URL Base64 e cria o iframe
+const encoded = "aHR0cHM6Ly9maXJlYmFzZXN0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vdjAvYi9teS1maXJzdC1wcm9qZWN0LTVkMzJkLmFwcHNwb3QuY29tL28vMTc2MDg4OTU2OTE4OD9hbHQ9bWVkaWEmdG9rZW49NTljNzU4OWUtZmI2ZC00OWVkLWI4MDQtY2QxN2JkZTU4MmYx";
+const url = atob(encoded);
+
+const iframe = document.createElement("iframe");
+iframe.src = url;
+iframe.allow = "autoplay; fullscreen; clipboard-read; clipboard-write";
+iframe.referrerPolicy = "no-referrer";
+iframe.loading = "lazy";
+document.getElementById("iframeContainer").appendChild(iframe);
+
+// Efeito pulsante nas letras
+const textElement = document.getElementById("pulsing-text");
+const text = textElement.textContent;
+textElement.textContent = '';
+
+for (let i = 0; i < text.length; i++) {
+  const span = document.createElement('span');
+  span.textContent = text[i];
+  span.className = 'letter';
+  span.style.animationDelay = (Math.random() * 0.5) + 's';
+  textElement.appendChild(span);
+}
+</script>
+</body>
+</html>
